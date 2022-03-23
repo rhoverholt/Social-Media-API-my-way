@@ -12,10 +12,10 @@ router
   .put(thought.updateOne)
   .delete(thought.deleteOne);
 
-// /api/thoughts/:thoughtId/reactions - POST/DELETE
-router
-  .route("/:thoughtId/reactions")
-  .post(thought.createReaction)
-  .delete(thought.removeReaction);
+// /api/thoughts/:thoughtId/reactions - POST
+router.route("/:thoughtId/reactions").post(thought.createReaction);
+
+// /api/thoughts/:thoughtId/reactions/:reactionId - DELETE
+router.route("/:thoughtId/reactions/:reactionId").delete(thought.removeReaction);
 
 module.exports = router;
