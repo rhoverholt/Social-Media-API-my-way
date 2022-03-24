@@ -71,7 +71,7 @@ const thought = {
       return;
     }
 
-    if (req.body?.username == thought.username) {
+    if (!req.body?.username || req.body.username == thought.username) {
       if (!req.body.thoughtText) {
         console.log("no username to update");
         return res
